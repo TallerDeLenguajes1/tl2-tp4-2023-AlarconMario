@@ -10,13 +10,13 @@ namespace spaceCadeteria
         private string? telf;
         private int cantidaPedidos;
         private static Cadeteria instance;
-        private List<Cadete>? ListadoCadetes;
-        private List<Pedido>? ListadoPedidos;
+        private List<Cadete> ListadoCadetes;
+        private List<Pedido> ListadoPedidos;
 
         public string? Nombre { get => nombre; set => nombre = value; }
         public string? Telf { get => telf; set => telf = value; }
-        public List<Cadete>? Cadetes { get => ListadoCadetes; set => ListadoCadetes = value; }
-        public List<Pedido>? Pedidos { get => ListadoPedidos; set => ListadoPedidos = value; }
+        public List<Cadete> Cadetes { get => ListadoCadetes; set => ListadoCadetes = value; }
+        public List<Pedido> Pedidos { get => ListadoPedidos; set => ListadoPedidos = value; }
         public int CantidaPedidos { get => cantidaPedidos; set => cantidaPedidos = value; }
 
         public static Cadeteria Instance
@@ -32,8 +32,6 @@ namespace spaceCadeteria
             }
         }
 
-        
-
         public Cadeteria()
         {
             ListadoCadetes = new List<Cadete>();
@@ -47,13 +45,10 @@ namespace spaceCadeteria
             this.Pedidos = pedidos;
             this.cantidaPedidos = cantidaPedidos + 1;
         }
-
-
         public void AgregarPeido()
         {
             Pedido pedido = crearPedido();
-            ListadoPedidos.Add(pedido);
-            
+            ListadoPedidos.Add(pedido);    
         }
         private Pedido crearPedido()
         {
@@ -71,7 +66,6 @@ namespace spaceCadeteria
         }
         public void Datos(Cadeteria cad)
         {
-            
             Console.WriteLine($"Cadeteria: {cad.Nombre}");
             Console.WriteLine($"Telefono: {cad.Telf}");
             
@@ -90,7 +84,6 @@ namespace spaceCadeteria
                 }
                 
             }
- 
             return total;
         }
         public int enviosEntregados(int _idCadete)
@@ -105,15 +98,7 @@ namespace spaceCadeteria
             }
             return contador;
         }
-        public float promedioDeEnvios(int _idCadete)
-        {
-            float prom = 0;
-            if(ListadoPedidos != null)
-            {
-                prom = (enviosEntregados(_idCadete) * 100)/ListadoPedidos.Count;
-            }
-            return prom;
-        }
+        
         public void AsignarCadeteAPedido(int _idCadete, int _idPedido){
             for (int i = 0; i < ListadoPedidos.Count; i++)
             {

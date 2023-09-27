@@ -10,7 +10,6 @@ namespace spacePedido
         private string? estado;
         int idCadete;
        
-
         public int Nro { get => nro; set => nro = value; }
         public string? Obs { get => obs; set => obs = value; }
         //public Cliente Clientes { get => cliente; set => cliente = value; }
@@ -47,9 +46,6 @@ namespace spacePedido
             SinAsignar,
             EnCamino,
             Entregado
-        }
-        
-    }
-     
-     
+        }  
+    }    
 }

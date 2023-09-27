@@ -5,33 +5,33 @@ using spacePedido;
 namespace tl2_tp4_2023_AlarconMario.Controllers
 {
     [ApiController]
-    [Route("cadeteria")]
+    [Route("_cadeteria")]
     public class CadeteriaController : ControllerBase
     {
-        private Cadeteria cadeteria;
+        private Cadeteria _cadeteria;
         private readonly ILogger<CadeteriaController> _logger;
         public CadeteriaController(ILogger<CadeteriaController> logger)
         {
             _logger = logger;
-            cadeteria = Cadeteria.Instance;
+            _cadeteria = Cadeteria.Instance;
         }
        
         [HttpGet("pedidos")]
         public IActionResult listapedidos()
         {
-            return Ok(cadeteria.Pedidos);
+            return Ok(_cadeteria.Pedidos);
         }
 
         [HttpGet("cadete")]
         public IActionResult listaCadetes()
         {
-            return Ok(cadeteria.Cadetes);
+            return Ok(_cadeteria.Cadetes);
         }
 
         [HttpGet("informe")]
         public IActionResult GetInforme()
         {
-            Informe inf = new Informe(cadeteria.Pedidos, cadeteria.Cadetes);
+            Informe inf = new Informe(_cadeteria.Pedidos, _cadeteria.Cadetes);
             if(inf.TotalDePedidos > 0)
             {
                 return Ok(inf);
@@ -39,16 +39,15 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
             else
             {
                 return StatusCode(500, "Ha ocurrido un error agregando el pedido.");
-            }
-            
+            }           
         }
 
         [HttpPost("agregar_pedido")]
         public IActionResult crearPedido()
         {
-            int cantPedidos = cadeteria.Pedidos.Count;
-            cadeteria.AgregarPeido();
-            if (cadeteria.Pedidos.Count == cantPedidos + 1)
+            int cantPedidos = _cadeteria.Pedidos.Count;
+            _cadeteria.AgregarPeido();
+            if (_cadeteria.Pedidos.Count == cantPedidos + 1)
             {
                 return Ok("Pedido agregado correctamente");
             }
@@ -61,18 +60,26 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
         [HttpPut("asignar_pedido")]
         public IActionResult AsignarPedido(int idPedido, int idCadete)
         {
-            if(idPedido <= 0 || idPedido > cadeteria.Pedidos.Count)
+            if(idPedido <= 0 || idPedido > _cadeteria.Pedidos.Count)
             {
                 return BadRequest("Parámetro idPedido inválido.");
             }
-            else if(idCadete <= 0 || idCadete > cadeteria.Cadetes.Count)
+            else if(idCadete <= 0 || idCadete > _cadeteria.Cadetes.Count)
             {
                 return BadRequest("Parámetro idCadete inválido.");
             }
             else
             {
-                cadeteria.AsignarCadeteAPedido(idCadete, idPedido);
-                return Ok($"El pedido Nro: {idPedido} fue asignado al cadete Id: {idCadete}");
+                var pedidoAsignado = _cadeteria.pedidosSinAsignar().FirstOrDefault(p => p.Nro == idPedido);
+                if(pedidoAsignado != null)
+                {
+                    _cadeteria.AsignarCadeteAPedido(idCadete, idPedido);
+                    return Ok($"El pedido Nro: {idPedido} fue asignado al cadete Id: {idCadete}");
+                }    
+                else
+                {
+                    return BadRequest($"El pedido Nro: {idPedido} ya esta asignado a un cadete, no es posible asignarlo.");
+                }
             }    
         }
 
@@ -80,7 +87,7 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
         public IActionResult CambiarEstadoPedido(int idPedido,int NuevoEstado)
         {
             int cantidadElementos = Enum.GetValues(typeof(Pedido.estadoPedido)).Length;
-             if(idPedido <= 0 || idPedido > cadeteria.Pedidos.Count)
+             if(idPedido <= 0 || idPedido > _cadeteria.Pedidos.Count)
             {
                 return BadRequest("Parámetro idPedido inválido.");
             }
@@ -90,7 +97,7 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
             }
             else
             {
-                cadeteria.cambiarEstado(idPedido, NuevoEstado);
+                _cadeteria.cambiarEstado(idPedido, NuevoEstado);
                 return Ok($"El estado del pedido nro: {idPedido} cambio a {(Pedido.estadoPedido)NuevoEstado}");
             }
         }
@@ -98,21 +105,21 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
         [HttpPut ("reasignar_pedido")] 
         public IActionResult CambiarCadetePedido(int idPedido,int idNuevoCadete)
         {
-            if(idPedido <= 0 || idPedido > cadeteria.pedidosAsignado().Count)
+            if(idPedido <= 0 || idPedido > _cadeteria.Pedidos.Count)
             {
                 return BadRequest("Parámetro idPedido inválido.");
             }
-            else if(idNuevoCadete <= 0 || idNuevoCadete > cadeteria.Cadetes.Count)
+            else if(idNuevoCadete <= 0 || idNuevoCadete > _cadeteria.Cadetes.Count)
             {
                 return BadRequest("Parámetro idCadete inválido.");
             }
 
             else
             {
-                var pedidoAsignado = cadeteria.pedidosAsignado().FirstOrDefault(p => p.Nro == idPedido);
+                var pedidoAsignado = _cadeteria.pedidosAsignado().FirstOrDefault(p => p.Nro == idPedido);
                 if (pedidoAsignado != null)
                 {
-                    cadeteria.reasignarPedido(idPedido, idNuevoCadete);
+                    _cadeteria.reasignarPedido(idPedido, idNuevoCadete);
                     return Ok($"El pedido Nro: {idPedido} fue Reasignado al cadete Id: {idNuevoCadete}");
                 }
                 else

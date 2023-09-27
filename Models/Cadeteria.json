@@ -25,19 +25,19 @@
     "Pedidos": [
         {
             "Nro": 1,
-            "Obs": "SinEstado",
+            "Obs": "SinObsevacion",
             "Estado": "SinAsignar",
-            "IdCadete": 1
+            "IdCadete": 0
         },
         {
             "Nro": 2,
-            "Obs": "SinEstado",
+            "Obs": "SinObsevacion",
             "Estado": "EnCamino",
             "IdCadete": 2
         },
         {
             "Nro": 3,
-            "Obs": "SinEstado",
+            "Obs": "SinObsevacion",
             "Estado": "Entregado",
             "IdCadete": 3
         }
