@@ -1,7 +1,7 @@
 using spacePedido;
 using System.Text.Json;
 
-namespace AccesoADatosPedido
+namespace spaceAccesoADatosPedido
 {
     public class AccesoADatosPedidos
     {
@@ -9,24 +9,22 @@ namespace AccesoADatosPedido
 
         public List<Pedido> obtener()
         {
-                        
-            // Verifica si el archivo JSON existe
-            if (File.Exists("Pedido.json"))
+            if (File.Exists("/ModelsPedido.json"))
             {
                 try
                 {
                     // Lee el contenido del archivo JSON
-                    string jsonContent = File.ReadAllText("Pedido.json");
+                    string jsonContent = File.ReadAllText("Models/Pedido.json");
 
                     // Deserializa el JSON a una lista de pedidos
-                    listPedido = JsonSerializer.Deserialize<List<Pedido>>(jsonContent);
+                    var ped = JsonSerializer.Deserialize<Pedido>(jsonContent);
+                    listPedido.Add(ped);
                 }
                 catch (JsonException ex)
                 {
                     Console.WriteLine($"Error al deserializar el archivo JSON: {ex.Message}");
                 }
             }
-
             return listPedido;
         }
     }

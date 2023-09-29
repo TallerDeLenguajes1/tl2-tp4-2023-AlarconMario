@@ -6,13 +6,13 @@ namespace spacePedido
     {
         private int nro;
         private string? obs;
-        Cliente cliente;
+        Cliente? cliente;
         private string? estado;
         int idCadete;
        
         public int Nro { get => nro; set => nro = value; }
         public string? Obs { get => obs; set => obs = value; }
-        public Cliente Clientes { get => cliente; set => cliente = value; }
+        public Cliente? Clientes { get => cliente; set => cliente = value; }
         public string? Estado { get => estado; set => estado = value; }
         public int IdCadete { get=> idCadete; set => idCadete = value; }
        

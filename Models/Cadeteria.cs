@@ -1,6 +1,9 @@
 using spacePedido;
 using spaceCadete;
 using spaceAccesoADatos;
+using spaceAccesoADatosCadeteria;
+using spaceAccesoADatosCadete;
+using spaceAccesoADatosPedido;
 
 namespace spaceCadeteria
 {
@@ -25,8 +28,12 @@ namespace spaceCadeteria
             {
                 if (instance == null)
                 {
-                    AccesoADatos cargar = new AccesoJson();
-                    instance = cargar.CargarInfoCadeteria();
+                    AccesoADatosCadeteria datosCadeteria = new();
+                    AccesoADatosCadetes datosCadete = new();
+                    AccesoADatosPedidos datosPedidos = new();
+                    instance = datosCadeteria.obtenerDatos();
+                    instance.Cadetes = datosCadete.obtener();
+                    instance.Pedidos = datosPedidos.obtener();
                 }
                 return instance;
             }

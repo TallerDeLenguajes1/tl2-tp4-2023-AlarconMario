@@ -1,0 +1,20 @@
+[
+    {
+        "Nombre": "Juan",
+        "Id": 1,
+        "Direccion": "38186786",
+        "Telf": "Alem 672"
+    },
+    {
+        "Nombre": "Luis",
+        "Id": 2,
+        "Direccion": "38198687",
+        "Telf": "Independencia 213"
+    },
+    {
+        "Nombre": "Hector",
+        "Id": 3,
+        "Direccion": "38123498",
+        "Telf": "25 de Mayo 234"
+    }   
+]

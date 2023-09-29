@@ -1,40 +1,38 @@
-{
-    "Pedidos": [
-        {
-            "Nro": 1,
-            "Obs": "SinObsevacion",
-            "Estado": "SinAsignar",
-            "IdCadete": 0,
-            "Clientes": {
-                "Nombre": "María",
-                "Direccion": "Avenida B",
-                "Telf": "+1 555-5678",
-                "DatoReferencia": "Referencia 1"
-              }
+[
+    {
+        "nro": 1,
+        "obs": "prueba",
+        "clientes": {
+          "nombre": "Luis",
+          "direccion": "Avenida B",
+          "telf": "3812587",
+          "datoReferencia": "Referencia 1"
         },
-        {
-            "Nro": 2,
-            "Obs": "SinObsevacion",
-            "Estado": "EnCamino",
-            "IdCadete": 2,
-            "Clientes": {
-                "Nombre": "María",
-                "Direccion": "Avenida B",
-                "Telf": "+1 555-5678",
-                "DatoReferencia": "Referencia 1"
-              }
+        "estado": "EnCamino",
+        "idCadete": 2
+      },
+      {
+        "nro": 2,
+        "obs": "prueba",
+        "clientes": {
+          "nombre": "Ana",
+          "direccion": "Avenida B",
+          "telf": "3812861",
+          "datoReferencia": "Referencia 4"
         },
-        {
-            "Nro": 3,
-            "Obs": "SinObsevacion",
-            "Estado": "Entregado",
-            "IdCadete": 3,
-            "Clientes": {
-                "Nombre": "María",
-                "Direccion": "Avenida B",
-                "Telf": "381-5678",
-                "DatoReferencia": "Referencia 1"
-            }
-        }
-    ]
-}
+        "estado": "EnCamino",
+        "idCadete": 3
+      },
+      {
+        "nro": 3,
+        "obs": "prueba",
+        "clientes": {
+          "nombre": "Sofía",
+          "direccion": "Avenida B",
+          "telf": "3815634",
+          "datoReferencia": "Referencia 4"
+        },
+        "estado": "EnCamino",
+        "idCadete": 1
+      }
+]
