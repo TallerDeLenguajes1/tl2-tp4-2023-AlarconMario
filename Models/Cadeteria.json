@@ -1,45 +1,5 @@
 {
     "Nombre": "Cadeteria Ejemplo",
     "Telf": "123456789",
-    "CantidaPedidos": 2,
-    "Cadetes": [
-        {
-            "Nombre": "Juan",
-            "Id": 1,
-            "Direccion": "38186786",
-            "Telf": "Alem 672"
-        },
-        {
-            "Nombre": "Luis",
-            "Id": 2,
-            "Direccion": "38198687",
-            "Telf": "Independencia 213"
-        },
-        {
-            "Nombre": "Hector",
-            "Id": 3,
-            "Direccion": "38123498",
-            "Telf": "25 de Mayo 234"
-        }
-    ],
-    "Pedidos": [
-        {
-            "Nro": 1,
-            "Obs": "SinObsevacion",
-            "Estado": "SinAsignar",
-            "IdCadete": 0
-        },
-        {
-            "Nro": 2,
-            "Obs": "SinObsevacion",
-            "Estado": "EnCamino",
-            "IdCadete": 2
-        },
-        {
-            "Nro": 3,
-            "Obs": "SinObsevacion",
-            "Estado": "Entregado",
-            "IdCadete": 3
-        }
-    ]
+    "CantidaPedidos": 2
 }
