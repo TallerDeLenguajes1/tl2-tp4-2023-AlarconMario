@@ -8,7 +8,7 @@ namespace spaceAccesoADatosCadeteria
     {
          public Cadeteria cadeteria = null;
 
-         Cadeteria obtenerDatos()
+         public Cadeteria obtenerDatos()
          {
             string miJson = File.ReadAllText("Models/Cadeteria.json");
             cadeteria = JsonSerializer.Deserialize<Cadeteria>(miJson); 
