@@ -5,18 +5,20 @@ namespace spacePedido
     public class Pedido
     {
         private int nro;
-        private string? obs;
-        Cliente? cliente;
+        private string obs;
+        Cliente cliente;
         private string? estado;
         int idCadete;
        
         public int Nro { get => nro; set => nro = value; }
-        public string? Obs { get => obs; set => obs = value; }
-        public Cliente? Clientes { get => cliente; set => cliente = value; }
+        public string Obs { get => obs; set => obs = value; }
+        public Cliente Clientes { get => cliente; set => cliente = value; }
         public string? Estado { get => estado; set => estado = value; }
         public int IdCadete { get=> idCadete; set => idCadete = value; }
        
-
+        public Pedido()
+        {
+        }
         public Pedido(int _id, string _obs, string _estado, int _idCadete)
         {
             this.nro = _id;
@@ -26,9 +28,7 @@ namespace spacePedido
             this.cliente = CrearClienteAleatorio();
             
         }
-        public Pedido()
-        {
-        }
+        
         public string verdireccionCliente(Cliente cliente){
             return cliente.Direccion;
         } 
@@ -52,7 +52,7 @@ namespace spacePedido
         public Cliente CrearClienteAleatorio()
         {
             // Genera nombres aleatorios
-            string[] nombres = { "Juan", "María", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofía" };
+            string[] nombres = { "Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia" };
             string nombreAleatorio = nombres[new Random().Next(nombres.Length)];
 
             // Genera direcciones aleatorias

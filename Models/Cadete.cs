@@ -14,7 +14,7 @@ namespace spaceCadete
         public string? Direccion { get => direccion; set => direccion = value; }
         public string? Telf { get => telf; set => telf = value; }
 
-        public Cadete(string nombre, int id, string telf, string direccion)
+        public Cadete(string nombre, int id, string direccion, string telf)
         {
             this.Nombre = nombre;
             this.Id = id;

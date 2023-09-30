@@ -46,9 +46,10 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
         public IActionResult crearPedido()
         {
             int cantPedidos = _cadeteria.Pedidos.Count;
-            _cadeteria.AgregarPeido();
+            _cadeteria.AgregarPedido();
             if (_cadeteria.Pedidos.Count == cantPedidos + 1)
             {
+                _cadeteria.accesoADatosPedidos.guardar(_cadeteria.Pedidos);
                 return Ok("Pedido agregado correctamente");
             }
             else
@@ -74,6 +75,7 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
                 if(pedidoAsignado != null)
                 {
                     _cadeteria.AsignarCadeteAPedido(idCadete, idPedido);
+                    _cadeteria.accesoADatosPedidos.guardar(_cadeteria.Pedidos);
                     return Ok($"El pedido Nro: {idPedido} fue asignado al cadete Id: {idCadete}");
                 }    
                 else
@@ -98,6 +100,7 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
             else
             {
                 _cadeteria.cambiarEstado(idPedido, NuevoEstado);
+                _cadeteria.accesoADatosPedidos.guardar(_cadeteria.Pedidos);
                 return Ok($"El estado del pedido nro: {idPedido} cambio a {(Pedido.estadoPedido)NuevoEstado}");
             }
         }
@@ -120,6 +123,7 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
                 if (pedidoAsignado != null)
                 {
                     _cadeteria.reasignarPedido(idPedido, idNuevoCadete);
+                    _cadeteria.accesoADatosPedidos.guardar(_cadeteria.Pedidos);
                     return Ok($"El pedido Nro: {idPedido} fue Reasignado al cadete Id: {idNuevoCadete}");
                 }
                 else

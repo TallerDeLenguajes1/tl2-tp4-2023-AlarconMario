@@ -15,6 +15,7 @@ namespace spaceCadeteria
         private static Cadeteria instance;
         private List<Cadete> ListadoCadetes;
         private List<Pedido> ListadoPedidos;
+        public AccesoADatosPedidos accesoADatosPedidos = new();
 
         public string? Nombre { get => nombre; set => nombre = value; }
         public string? Telf { get => telf; set => telf = value; }
@@ -28,10 +29,11 @@ namespace spaceCadeteria
             {
                 if (instance == null)
                 {
-                    AccesoADatosCadeteria datosCadeteria = new();
+                    var datosCadeteria = new AccesoADatosCadeteria();
+                    instance = datosCadeteria.obtenerDatos();
                     AccesoADatosCadetes datosCadete = new();
                     AccesoADatosPedidos datosPedidos = new();
-                    instance = datosCadeteria.obtenerDatos();
+                    
                     instance.Cadetes = datosCadete.obtener();
                     instance.Pedidos = datosPedidos.obtener();
                 }
@@ -52,7 +54,7 @@ namespace spaceCadeteria
             this.Pedidos = pedidos;
             this.cantidaPedidos = cantidaPedidos + 1;
         }
-        public void AgregarPeido()
+        public void AgregarPedido()
         {
             Pedido pedido = crearPedido();
             ListadoPedidos.Add(pedido);    

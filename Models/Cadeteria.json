@@ -2,6 +2,6 @@
     "Nombre": "Cadeteria Ejemplo",
     "Telf": "123456789",
     "CantidaPedidos": 2,
-    "Cadetes":[],
-    "Pedidos":[]
+    "Cadetes": [],
+    "Pedidos": []
 }

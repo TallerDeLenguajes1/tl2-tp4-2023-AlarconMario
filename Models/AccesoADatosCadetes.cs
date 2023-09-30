@@ -12,8 +12,8 @@ namespace spaceAccesoADatosCadete
          public List<Cadete> obtener()
          {   
             string miJson = File.ReadAllText("Models/Cadete.json");
-            var cad = JsonSerializer.Deserialize<Cadete>(miJson);
-            listCadete.Add(cad);
+            var cad = JsonSerializer.Deserialize<Cadete[]>(miJson);
+            listCadete.AddRange(cad);
             return listCadete;
          }
     }

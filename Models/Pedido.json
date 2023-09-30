@@ -1,38 +1,74 @@
 [
-    {
-        "nro": 1,
-        "obs": "prueba",
-        "clientes": {
-          "nombre": "Luis",
-          "direccion": "Avenida B",
-          "telf": "3812587",
-          "datoReferencia": "Referencia 1"
-        },
-        "estado": "EnCamino",
-        "idCadete": 2
-      },
-      {
-        "nro": 2,
-        "obs": "prueba",
-        "clientes": {
-          "nombre": "Ana",
-          "direccion": "Avenida B",
-          "telf": "3812861",
-          "datoReferencia": "Referencia 4"
-        },
-        "estado": "EnCamino",
-        "idCadete": 3
-      },
-      {
-        "nro": 3,
-        "obs": "prueba",
-        "clientes": {
-          "nombre": "Sofía",
-          "direccion": "Avenida B",
-          "telf": "3815634",
-          "datoReferencia": "Referencia 4"
-        },
-        "estado": "EnCamino",
-        "idCadete": 1
-      }
+  {
+    "Nro": 1,
+    "Obs": "prueba",
+    "Clientes": {
+      "Nombre": "Luis",
+      "Direccion": "Avenida B",
+      "Telf": "3812587",
+      "DatoReferencia": "Referencia 1"
+    },
+    "Estado": "Entregado",
+    "IdCadete": 2
+  },
+  {
+    "Nro": 2,
+    "Obs": "prueba",
+    "Clientes": {
+      "Nombre": "Ana",
+      "Direccion": "Avenida B",
+      "Telf": "3812861",
+      "DatoReferencia": "Referencia 4"
+    },
+    "Estado": "EnCamino",
+    "IdCadete": 3
+  },
+  {
+    "Nro": 3,
+    "Obs": "prueba",
+    "Clientes": {
+      "Nombre": "Sofia",
+      "Direccion": "Avenida B",
+      "Telf": "3815634",
+      "DatoReferencia": "Referencia 4"
+    },
+    "Estado": "Enviado",
+    "IdCadete": 2
+  },
+  {
+    "Nro": 3,
+    "Obs": "prueba",
+    "Clientes": {
+      "Nombre": "Luis",
+      "Direccion": "Calle C",
+      "Telf": "3811767",
+      "DatoReferencia": "Referencia 2"
+    },
+    "Estado": "Enviado",
+    "IdCadete": 1
+  },
+  {
+    "Nro": 3,
+    "Obs": "prueba",
+    "Clientes": {
+      "Nombre": "Ana",
+      "Direccion": "Calle C",
+      "Telf": "3811904",
+      "DatoReferencia": "Referencia 3"
+    },
+    "Estado": "Enviado",
+    "IdCadete": 1
+  },
+  {
+    "Nro": 4,
+    "Obs": "prueba",
+    "Clientes": {
+      "Nombre": "Laura",
+      "Direccion": "Calle A",
+      "Telf": "3814891",
+      "DatoReferencia": "Referencia 3"
+    },
+    "Estado": "SinAsignar",
+    "IdCadete": 0
+  }
 ]

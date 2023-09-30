@@ -6,26 +6,22 @@ namespace spaceAccesoADatosPedido
     public class AccesoADatosPedidos
     {
         private List<Pedido> listPedido = new List<Pedido>();
-
         public List<Pedido> obtener()
         {
-            if (File.Exists("/ModelsPedido.json"))
-            {
-                try
-                {
-                    // Lee el contenido del archivo JSON
-                    string jsonContent = File.ReadAllText("Models/Pedido.json");
-
-                    // Deserializa el JSON a una lista de pedidos
-                    var ped = JsonSerializer.Deserialize<Pedido>(jsonContent);
-                    listPedido.Add(ped);
-                }
-                catch (JsonException ex)
-                {
-                    Console.WriteLine($"Error al deserializar el archivo JSON: {ex.Message}");
-                }
-            }
+            string jsonContent = File.ReadAllText("Models/Pedido.json");
+            var pedidos = JsonSerializer.Deserialize<Pedido[]>(jsonContent);
+            listPedido.AddRange(pedidos);   
             return listPedido;
+        }
+        public void guardar(List<Pedido> pedidos)
+        {
+            string filePath = "Models/Pedido.json";
+            var nuevoJsonString = new JsonSerializerOptions
+            {
+                WriteIndented = true 
+            };
+            string jsonPedidos = JsonSerializer.Serialize(pedidos,nuevoJsonString);
+            File.WriteAllText(filePath, jsonPedidos); 
         }
     }
 }
