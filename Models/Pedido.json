@@ -36,39 +36,15 @@
     "IdCadete": 2
   },
   {
-    "Nro": 3,
-    "Obs": "prueba",
-    "Clientes": {
-      "Nombre": "Luis",
-      "Direccion": "Calle C",
-      "Telf": "3811767",
-      "DatoReferencia": "Referencia 2"
-    },
-    "Estado": "Enviado",
-    "IdCadete": 1
-  },
-  {
-    "Nro": 3,
-    "Obs": "prueba",
-    "Clientes": {
-      "Nombre": "Ana",
-      "Direccion": "Calle C",
-      "Telf": "3811904",
-      "DatoReferencia": "Referencia 3"
-    },
-    "Estado": "Enviado",
-    "IdCadete": 1
-  },
-  {
     "Nro": 4,
     "Obs": "prueba",
     "Clientes": {
-      "Nombre": "Laura",
-      "Direccion": "Calle A",
-      "Telf": "3814891",
-      "DatoReferencia": "Referencia 3"
+      "Nombre": "Pedro",
+      "Direccion": "Avenida B",
+      "Telf": "3812365",
+      "DatoReferencia": "Referencia 4"
     },
-    "Estado": "SinAsignar",
-    "IdCadete": 0
+    "Estado": "EnCamino",
+    "IdCadete": 2
   }
 ]

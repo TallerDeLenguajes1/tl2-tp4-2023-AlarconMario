@@ -16,5 +16,16 @@ namespace spaceAccesoADatosCadete
             listCadete.AddRange(cad);
             return listCadete;
          }
+
+         public void guardar(List<Cadete> cadetes)
+        {
+            string filePath = "Models/Cadete.json";
+            var nuevoJsonString = new JsonSerializerOptions
+            {
+                WriteIndented = true 
+            };
+            string jsonPedidos = JsonSerializer.Serialize(cadetes,nuevoJsonString);
+            File.WriteAllText(filePath, jsonPedidos); 
+        }
     }
 }

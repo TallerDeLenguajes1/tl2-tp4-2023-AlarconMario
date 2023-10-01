@@ -16,6 +16,7 @@ namespace spaceCadeteria
         private List<Cadete> ListadoCadetes;
         private List<Pedido> ListadoPedidos;
         public AccesoADatosPedidos accesoADatosPedidos = new();
+        public AccesoADatosCadetes accesoADatosCadetes = new();
 
         public string? Nombre { get => nombre; set => nombre = value; }
         public string? Telf { get => telf; set => telf = value; }
@@ -59,14 +60,21 @@ namespace spaceCadeteria
             Pedido pedido = crearPedido();
             ListadoPedidos.Add(pedido);    
         }
+
+        public void CrearCadete(string nombre, string direccion, string telf)
+        {   
+            int id = Cadetes.Count + 1;
+            Cadete nuevoCadete = new Cadete(nombre, id, direccion, telf);
+            Cadetes.Add(nuevoCadete);
+        }
         private Pedido crearPedido()
         {
             Random random = new Random();
-            int idC = random.Next(1, 4);
+            int idC = random.Next(1, Cadetes.Count);
             int numeroAleatorio = random.Next(0,3);
-            cantidaPedidos+=1;
+            
             Pedido.estadoPedido est = (Pedido.estadoPedido)numeroAleatorio;
-            var p = new Pedido(cantidaPedidos, "prueba", est.ToString(), idC);
+            var p = new Pedido(Pedidos.Count + 1 , "prueba", est.ToString(), idC);
             if(est == 0)
             {
                 p.IdCadete = 0;

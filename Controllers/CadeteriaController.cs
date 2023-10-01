@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using spaceCadete;
 using spaceCadeteria;
 using spaceInforme;
 using spacePedido;
@@ -162,6 +163,15 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
                 return BadRequest($"Id Cadete {idCadete} no existe");
             }
         }
-        
+        [HttpPost]
+        [Route("agregar_cadete")]
+
+        public IActionResult AddCadete(string nombre, string direccion, string telf)
+        {
+            
+            _cadeteria.CrearCadete(nombre, direccion, telf);
+            _cadeteria.accesoADatosCadetes.guardar(_cadeteria.Cadetes);
+            return Ok("Cadete creado con Exito.");
+        }
     }
 }
