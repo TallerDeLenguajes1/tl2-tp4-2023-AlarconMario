@@ -172,10 +172,6 @@ namespace spaceCadeteria
             }
             return sinAsignar;
         }
-        public int selecionarPedido(int indice, List<Pedido> _pedidos)
-        {
-            int pedidoSeleccionado = _pedidos[indice].Nro;
-            return pedidoSeleccionado;
-        }
+        
     }  
 }

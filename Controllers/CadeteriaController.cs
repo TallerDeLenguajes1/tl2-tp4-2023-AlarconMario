@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using spaceCadeteria;
 using spaceInforme;
@@ -5,7 +6,7 @@ using spacePedido;
 namespace tl2_tp4_2023_AlarconMario.Controllers
 {
     [ApiController]
-    [Route("_cadeteria")]
+    [Route("cadeteria")]
     public class CadeteriaController : ControllerBase
     {
         private Cadeteria _cadeteria;
@@ -132,5 +133,35 @@ namespace tl2_tp4_2023_AlarconMario.Controllers
                 }
             }  
         }
+
+        [HttpGet]
+        [Route("getPedido")]
+        public IActionResult GetPedido(int idPedido)
+        {
+            var pedidoSeleccionado = _cadeteria.Pedidos.FirstOrDefault(p => p.Nro == idPedido);
+            if(pedidoSeleccionado != null)
+            {
+                return Ok(pedidoSeleccionado);   
+            }
+            else
+            {
+                return BadRequest($"El pedido Nro {idPedido} no existe");
+            }
+        }
+        [HttpGet]
+        [Route("getCadete")]
+        public IActionResult GetCadete(int idCadete)
+        {
+            var cadeteSeleccionado = _cadeteria.Cadetes.FirstOrDefault(cad => cad.Id == idCadete);
+            if(cadeteSeleccionado != null)
+            {
+                return Ok(cadeteSeleccionado);
+            }
+            else
+            {
+                return BadRequest($"Id Cadete {idCadete} no existe");
+            }
+        }
+        
     }
 }
